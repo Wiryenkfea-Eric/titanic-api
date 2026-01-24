@@ -31,5 +31,40 @@ def create_app(env_name: str) -> Flask:
         return """
         Welcome to the Titanic API
         """
+# Health check endpoint for Docker and Kubernetes
+    @app.route('/health', methods=['GET'])
+    def health_check():
+        """
+        Health check endpoint for container orchestration
+        Returns 200 if the application is healthy
+        """
+        try:
+            # Check database connection
+            db.session.execute('SELECT 1')
+            return {
+                'status': 'healthy',
+                'database': 'connected',
+                'service': 'titanic-api'
+            }, 200
+        except Exception as e:
+            return {
+                'status': 'unhealthy',
+                'database': 'disconnected',
+                'error': str(e)
+            }, 503
 
+    # Root endpoint
+    @app.route('/', methods=['GET'])
+    def index():
+        """
+        Root endpoint
+        """
+        return {
+            'message': 'Welcome to Titanic API',
+            'version': '1.0.0',
+            'endpoints': {
+                'health': '/health',
+                'passengers': '/api/v1/passengers'
+            }
+        }, 200
     return app
