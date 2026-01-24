@@ -55,7 +55,7 @@ def create_app(env_name: str) -> Flask:
 
     # Root endpoint
     @app.route('/', methods=['GET'])
-    def index():
+    def api_index():
         """
         Root endpoint
         """

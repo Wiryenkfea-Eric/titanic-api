@@ -1,0 +1,60 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database (same as production)
+  db:
+    image: postgres:15-alpine
+    container_name: titanic-db-dev
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - postgres_data_dev:/var/lib/postgresql/data
+      - ./init-db.sql:/docker-entrypoint-initdb.d/init-db.sql:ro
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER} -d ${DB_NAME}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - titanic-network-dev
+
+  # Flask API Application (Development Mode)
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: titanic-api-dev
+    restart: unless-stopped
+    environment:
+      - FLASK_APP=${FLASK_APP}
+      - FLASK_ENV=development
+      - FLASK_DEBUG=1
+      - DATABASE_URL=${DATABASE_URL}
+      - SECRET_KEY=${SECRET_KEY}
+    ports:
+      - "5000:5000"
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - titanic-network-dev
+    volumes:
+      # Mount source code for hot-reload
+      - ./src:/app/src:ro
+      - ./run.py:/app/run.py:ro
+      - ./logs:/app/logs
+    command: python run.py
+
+networks:
+  titanic-network-dev:
+    driver: bridge
+    name: titanic-network-dev
+
+volumes:
+  postgres_data_dev:
+    name: titanic-postgres-data-dev
