@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: titanic
+  labels:
+    name: titanic
+    environment: production

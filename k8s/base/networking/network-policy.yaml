@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: titanic-db-policy
+  namespace: titanic
+spec:
+  podSelector:
+    matchLabels:
+      app: titanic-db
+  policyTypes:
+  - Ingress
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          app: titanic-api
+    ports:
+    - protocol: TCP
+      port: 5432

@@ -1,0 +1,22 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: titanic
+
+resources:
+  - namespace/namespace.yaml
+  - configmap/configmap.yaml
+  - secret/secret.yaml
+  - database/pvc.yaml
+  - database/statefulset.yaml
+  - database/service.yaml
+  - api/deployment.yaml
+  - api/service.yaml
+  - api/pdb.yaml
+  - autoscaling/hpa.yaml
+  - networking/network-policy.yaml
+  - networking/ingress.yaml
+
+commonLabels:
+  project: titanic-api
+  managed-by: kustomize
