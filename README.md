@@ -4,7 +4,7 @@ A production-ready containerized Flask API with PostgreSQL backend, demonstratin
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 
@@ -36,7 +36,7 @@ docker-compose down
 
 ---
 
-## 📋 Features
+## Features
 
 ### Application
 - ✅ RESTful API for Titanic passenger data
@@ -56,7 +56,7 @@ docker-compose down
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 ```
 ┌─────────────┐
 │   GitHub    │ ──> CI/CD Pipeline
@@ -77,7 +77,7 @@ docker-compose down
 
 ---
 
-## 🐳 Docker
+## Docker
 
 ### Build Image
 ```bash
@@ -101,7 +101,7 @@ docker run -d \
 
 ---
 
-## ☸️ Kubernetes
+## Kubernetes
 
 ### Deploy to Kubernetes
 ```bash
@@ -144,7 +144,7 @@ kubectl logs -n titanic titanic-db-0 --tail=100
 
 ---
 
-## 🔄 CI/CD Pipeline
+## CI/CD Pipeline
 
 ### GitHub Actions Workflows
 
@@ -164,7 +164,7 @@ kubectl logs -n titanic titanic-db-0 --tail=100
 
 ---
 
-## 🧪 Testing
+## Testing
 
 ### Local Testing
 ```bash
@@ -190,7 +190,7 @@ kubectl run test --rm -i --tty --image=curlimages/curl -- \
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 ```
 titanic-api/
 ├── .github/
@@ -224,7 +224,7 @@ titanic-api/
 
 ---
 
-## 🛠️ Development
+## Development
 
 ### Setup Local Environment
 ```bash
@@ -257,18 +257,18 @@ make clean         # Clean everything
 
 ---
 
-## 🔒 Security
+## Security
 
 ### Implemented Security Measures
 
-- ✅ Non-root container user (UID 1001)
-- ✅ Read-only root filesystem (where possible)
-- ✅ Dropped Linux capabilities
-- ✅ Network policies (pod-to-pod isolation)
-- ✅ Secrets management (never hardcoded)
-- ✅ Container image scanning (Trivy)
-- ✅ Resource limits (prevent DoS)
-- ✅ Health checks (auto-restart unhealthy pods)
+-  Non-root container user (UID 1001)
+-  Read-only root filesystem (where possible)
+-  Dropped Linux capabilities
+-  Network policies (pod-to-pod isolation)
+-  Secrets management (never hardcoded)
+-  Container image scanning (Trivy)
+-  Resource limits (prevent DoS)
+-  Health checks (auto-restart unhealthy pods)
 
 ### Security Scanning
 ```bash
@@ -282,7 +282,7 @@ kubectl apply --dry-run=client -k k8s/base/
 
 ---
 
-## 📊 Monitoring & Observability
+##  Monitoring & Observability
 
 ### Health Checks
 ```bash
@@ -315,7 +315,7 @@ kubectl top nodes
 
 ---
 
-## 🚢 Deployment
+##  Deployment
 
 ### Staging Environment
 ```bash
@@ -350,7 +350,7 @@ kubectl rollout history deployment/titanic-api -n titanic
 
 ---
 
-## 🐛 Troubleshooting
+##  Troubleshooting
 
 ### Pods Not Starting
 ```bash
@@ -393,7 +393,7 @@ kubectl get secret titanic-secrets -n titanic -o yaml
 
 ---
 
-## 📈 Performance
+## Performance
 
 ### Resource Requirements
 
@@ -415,7 +415,7 @@ kubectl get secret titanic-secrets -n titanic -o yaml
 
 ---
 
-## 💰 Cost Estimation
+## Cost Estimation
 
 ### Development (AWS us-east-1)
 - **Monthly:** ~$170
@@ -429,7 +429,7 @@ kubectl get secret titanic-secrets -n titanic -o yaml
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 1. Fork the repository
 2. Create feature branch (`git checkout -b feature/amazing-feature`)
@@ -441,11 +441,11 @@ kubectl get secret titanic-secrets -n titanic -o yaml
 
 ## 📄 License
 
-This project is for educational/assessment purposes.
+This project is for assessment purposes.
 
 ---
 
-## 📞 Support
+## Support
 
 For issues or questions:
 - Create GitHub Issue
@@ -454,7 +454,7 @@ For issues or questions:
 
 ---
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - **PipeOps** for the technical assessment
 - **Titanic Dataset** for demo data
@@ -462,6 +462,5 @@ For issues or questions:
 
 ---
 
-**Built with ❤️ for DevOps Excellence**
 
 **Last Updated:** January 26, 2026
