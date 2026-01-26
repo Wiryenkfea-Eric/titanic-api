@@ -154,7 +154,7 @@ kubectl logs -n titanic titanic-db-0 --tail=100
 - ✅ Security scanning (Trivy)
 - ✅ Automated testing
 
-**View Pipeline:** https://github.com/YOUR-USERNAME/titanic-api/actions
+**View Pipeline:** https://github.com/Wiryenkfea-Eric/titanic-api/actions
 
 ### Manual Deployment
 ```bash
