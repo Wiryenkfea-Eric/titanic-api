@@ -603,6 +603,6 @@ The solution balances complexity with practicality, implementing enterprise-grad
 
 ---
 
-**Author:** Your Name
+**Author:** Eric Nyuydze Wiryenkfea
 **Date:** January 26, 2026
 **Assessment:** PipeOps Senior DevOps Engineer Technical Task
